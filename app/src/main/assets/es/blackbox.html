@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=US-ASCII">
+<title>Black Box</title>
+<link rel="previous" href="untangle.html">
+<link rel="ToC" href="index.html">
+<link rel="up" href="index.html">
+<link rel="index" href="docindex.html">
+<link rel="next" href="slant.html">
+<style type="text/css">body { word-wrap: break-word; } body.night { color: #dddddd; background: #000000; } body.night a:link { color: #8888ff; } body.night a:visited { color: #cc88ff; }</style></head>
+<body>
+<p><a href="untangle.html">Anterior</a> | <a href="index.html">Contenido</a> | <a href="docindex.html">&Iacute;ndice</a> | <a href="slant.html">Siguiente</a></p>
+<h1><a name="C19"></a>Cap&iacute;tulo 19: <a name="i0"></a>Black Box</h1>
+<p>
+Varias bolas est&aacute;n ocultas en una arena rectangular. Tienes que deducir las posiciones de las bolas disparando l&aacute;seres colocados en los bordes de la arena y observando c&oacute;mo se desv&iacute;an sus rayos.
+</p>
+<p>
+Los rayos viajar&aacute;n directamente desde su origen hasta que golpeen el lado opuesto de la arena (en ese momento emergen), a menos que se vean afectados por las bolas de una de las siguientes maneras:
+</p>
+<ul><li>
+Un rayo que golpea una bola de frente se absorbe y nunca volver&aacute; a emerger. Esto incluye rayos que se encuentran con una pelota en la primera fila de la arena.
+</li>
+<li>
+Un rayo con una bola en su cuadrado delantero izquierdo y sin bola delante de &eacute;l se desv&iacute;a 90 grados a la derecha.
+</li>
+<li>
+Un rayo con una bola en su cuadrado delantero derecho y sin bola delante de &eacute;l se desv&iacute;a 90 grados hacia la izquierda.
+</li>
+<li>
+Un rayo que volver&iacute;a a emerger de su ubicaci&oacute;n de entrada se considera &#8216;reflejado&#8217;.
+</li>
+<li>
+Tambi&eacute;n se considera &#8216;reflejado&#8217; un rayo que ser&iacute;a desviado antes de entrar a la pista por una bola en la parte delantera izquierda o delantera derecha de su punto de entrada.
+</li>
+</ul>
+<p>
+Los rayos reflejados aparecen como &#8216;R&#8217;; los rayos que golpean las bolas de frente aparecen como &#8216;H&#8217;. De lo contrario, aparece un n&uacute;mero en el puesto de tiro y en el lugar donde emerge el rayo (este n&uacute;mero es exclusivo de ese disparo).
+</p>
+<p>
+Puede hacer conjeturas sobre la ubicaci&oacute;n de las bolas, bas&aacute;ndose en los patrones de entrada y salida de los rayos; una vez que haya colocado suficientes bolas, aparecer&aacute; un bot&oacute;n que le permitir&aacute; verificar sus conjeturas.
+</p>
+<p>
+Aqu&iacute; hay un diagrama que muestra c&oacute;mo las posiciones de las bolas pueden crear cada uno de los comportamientos del haz que se muestran arriba:
+</p>
+<pre><code> 1RHR----
+|..O.O...|
+2........3
+|........|
+|........|
+3........|
+|......O.|
+H........|
+|.....O..|
+ 12-RR---
+</code></pre>
+<p>
+Como se muestra, es posible que un rayo reciba m&uacute;ltiples reflejos antes de volver a emerger (ver el turno 3). De manera similar, un rayo puede reflejarse (posiblemente m&aacute;s de una vez) antes de recibir un impacto (el &#8216;H&#8217; en el lado izquierdo del ejemplo).
+</p>
+<p>
+Tenga en cuenta que cualquier despliegue con m&aacute;s de 4 bolas puede tener una soluci&oacute;n no &uacute;nica. El siguiente diagrama ilustra esto; Si sabe que el tablero contiene 5 bolas, es imposible determinar d&oacute;nde est&aacute; la quinta bola (posibles posiciones marcadas con una <code>x</code>):
+</p>
+<pre><code> --------
+|........|
+|........|
+|..O..O..|
+|...xx...|
+|...xx...|
+|..O..O..|
+|........|
+|........|
+ --------
+</code></pre>
+<p>
+Por esta raz&oacute;n, cuando verifique sus conjeturas, el juego comprobar&aacute; que su soluci&oacute;n <em>produce los mismos resultados</em> que la de la computadora, en lugar de que tu soluci&oacute;n sea id&eacute;ntica a la de la computadora. Entonces, en el ejemplo anterior, podr&iacute;a colocar la quinta bola en <em>cualquiera</em> de las ubicaciones marcadas con una <code>x</code>, y a&uacute;n as&iacute; ganar&iacute;a.
+</p>
+<p>
+Black Box fue una contribuci&oacute;n a esta colecci&oacute;n de James Harvey.
+</p>
+<h2><a name="S19.1"></a>19.1 <a name="i1"></a>Controles de Black Box</h2>
+<p>
+<em>En Android, toque para hacer clic con el bot&oacute;n izquierdo y mantenga presionado para hacer clic con el bot&oacute;n derecho. Tambi&eacute;n tenga en cuenta que cuando este manual se refiere a presionar una letra en el teclado, la versi&oacute;n de Android tiene iconos en la parte inferior de la pantalla (Control y Shift no est&aacute;n disponibles). Tambi&eacute;n hay un "modo nocturno" opcional que utiliza colores m&aacute;s oscuros en condiciones de poca luz.</em>
+</p>
+<p>
+Para disparar un rayo l&aacute;ser, haga clic con el bot&oacute;n izquierdo en un cuadrado alrededor del borde de la arena. Los resultados se mostrar&aacute;n inmediatamente. Al hacer clic o mantener presionado el bot&oacute;n izquierdo en uno de estos cuadrados, se resaltar&aacute; el recorrido actual (o un recorrido anterior) para confirmar el punto de salida para ese l&aacute;ser, si corresponde.
+</p>
+<p>
+Para adivinar la ubicaci&oacute;n de una pelota, haga clic con el bot&oacute;n izquierdo dentro de la arena y aparecer&aacute; un c&iacute;rculo negro marcando la conjetura; haga clic de nuevo para quitar la bola adivinada.
+</p>
+<p>
+Las ubicaciones en la arena pueden bloquearse contra modificaciones haciendo clic con el bot&oacute;n derecho; filas y columnas enteras se pueden bloquear de manera similar haciendo clic con el bot&oacute;n derecho en el cuadrado l&aacute;ser que se encuentra encima/debajo de esa columna, o a la derecha/izquierda de esa fila.
+</p>
+<p>
+Las teclas del cursor tambi&eacute;n se pueden usar para moverse por la cuadr&iacute;cula. Al presionar la tecla Intro se disparar&aacute; un l&aacute;ser o se agregar&aacute; una nueva suposici&oacute;n de ubicaci&oacute;n de la bola, y al presionar la barra espaciadora se bloquear&aacute; una celda, fila o columna.
+</p>
+<p>
+Cuando se haya adivinado un n&uacute;mero apropiado de bolas, aparecer&aacute; un bot&oacute;n en la esquina superior izquierda de la cuadr&iacute;cula; hacer clic en eso (con el mouse o el cursor) comprobar&aacute; sus conjeturas.
+</p>
+<p>
+Si hace clic en &#8216;compruebe&#8217; y sus conjeturas no son correctas, el juego le mostrar&aacute; la informaci&oacute;n m&iacute;nima necesaria para demostr&aacute;rselo, para que pueda volver a intentarlo. Si las posiciones de su bola no son consistentes con las trayectorias de los rayos que ya conoce, se marcar&aacute; con un c&iacute;rculo una trayectoria de los haces para indicar que est&aacute; equivocado. Si sus posiciones coinciden con todas las trayectorias de los haces existentes pero siguen siendo incorrectas, se revelar&aacute; una nueva trayectoria de haces (escrita en rojo) que no es coherente con sus conjeturas actuales.
+</p>
+<p>
+Si decide darse por vencido por completo, puede seleccionar Resolver para revelar las posiciones reales de la bola. En este punto, las bolas colocadas correctamente se mostrar&aacute;n como c&iacute;rculos negros rellenos, las bolas colocadas incorrectamente como c&iacute;rculos negros rellenos con cruces rojas y las bolas faltantes como c&iacute;rculos rojos rellenos. Adem&aacute;s, un c&iacute;rculo rojo marca cualquier l&aacute;ser que ya haya disparado que no sea consistente con el despliegue de sus bolas (como cuando presiona el bot&oacute;n &#8216;comprobar&#8217;), y el texto rojo marcar&aacute; cualquier l&aacute;ser que <em>pudiera</em> haber disparado para distinguir el despliegue correcto.
+</p>
+<p>
+(Todas las acciones descritas en la <a href="common.htmlS2.1">secci&oacute;n 2.1</a> tambi&eacute;n est&aacute;n disponibles).
+</p>
+<h2><a name="S19.2"></a>19.2 <a name="i2"></a>Par&aacute;metros de Black Box</h2>
+<p>
+Estos par&aacute;metros est&aacute;n disponibles desde la opci&oacute;n &#8216;Personalizar...&#8217; en el men&uacute; &#8216;Tipo&#8217;.
+These parameters are available from the &#8216;Custom...&#8217; option on the &#8216;Type&#8217; menu.
+</p>
+<dl><dt>
+<em>Ancho</em>, <em>Alto</em>
+</dt>
+<dd>
+Tama&ntilde;o de la cuadr&iacute;cula en cuadrados. Hay dos 2 &#215; <em>Alto</em> &#215; <em>Ancho</em> l&aacute;seres por cuadr&iacute;cula, dos por fila y dos por columna.
+</dd>
+<dt>
+<em>No. de bolas</em>
+</dt>
+<dd>
+N&uacute;mero de bolas para colocar en la cuadr&iacute;cula. Puede ser un solo n&uacute;mero o un rango (separado con un guion, como &#8216;2-6&#8217;), y determina el n&uacute;mero de bolas a colocar en la cuadr&iacute;cula. El bot&oacute;n &#8216;revelar&#8217; solo est&aacute; habilitado si ha adivinado un n&uacute;mero apropiado de bolas; una suposici&oacute;n con un n&uacute;mero diferente a la soluci&oacute;n original sigue siendo aceptable, si todas las entradas y salidas de rayos coinciden.
+</dd>
+</dl>
+
+<hr><address></address></body>
+</html>
